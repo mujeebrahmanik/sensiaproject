@@ -55,7 +55,7 @@ const Login = () => {
         <div className="row d-flex justify-content-center align-items-center min-vh-100">
             <div className="col-4"></div>
             <div className="col-4">
-                <h2 className='text-center mb-3'>Super Admin Login</h2>
+                <h2 className='text-center mb-3'>Admin Login</h2>
                 <form action="" onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label for="exampleInputEmail1" className="form-label">Username</label>

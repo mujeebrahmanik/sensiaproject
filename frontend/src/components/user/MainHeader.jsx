@@ -72,9 +72,14 @@ const {loggedIn,setLoggedIn}=useContext(AuthContext)
                   <button to='/' className="nav-link text-danger" aria-current="page" href="#" onClick={logout}>Logout</button>
                 </li>
                 ):(
+                  <>
+                    <li className="nav-item">
+                    <Link to='/login' className="nav-link text-primary" aria-current="page" href="#">Login</Link>
+                  </li>
                   <li className="nav-item">
-                  <Link to='/login' className="nav-link text-primary" aria-current="page" href="#">Login</Link>
-                </li>
+                    <Link to='/admin/login' className="nav-link text-primary" aria-current="page" href="#">Admin Login</Link>
+                  </li>
+                  </>
                 )}
                 
                 
