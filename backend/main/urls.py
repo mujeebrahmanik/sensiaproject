@@ -15,6 +15,12 @@ urlpatterns = [
     path('permission/', Permission_user_view.as_view(), name='permission_view'),
     path('my_permission/', My_permission_view.as_view(), name='my_permission_view'),
     path('edit_permission/<int:pk>/', Edit_permission_view.as_view(), name='edit_permission_view'),
+    path('recover_password/', Recover_password_view.as_view(), name='recover_view'),
+    path('reset_password/<uidb64>/<token>/', Reset_password.as_view(), name='reset_view'),
+    path('edit_user/<int:pk>/', Edit_user_view.as_view(), name='edit_user_view'),
+
+
+
 
 
 

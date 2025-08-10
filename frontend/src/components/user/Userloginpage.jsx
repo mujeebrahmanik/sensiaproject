@@ -1,6 +1,6 @@
 import React,{useState,useContext} from 'react'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
@@ -69,13 +69,14 @@ const Userloginpage = () => {
                 </div>
                                 {error && <h5 className='text-danger text-center mb-3'>{error}</h5>}
                 {loading ? (
-                                <button type="submit" className="btn btn-primary form-control"><FontAwesomeIcon icon={faSpinner} /> Logging in</button>
+                                <button type="submit" className="btn btn-primary form-control fw-bold"><FontAwesomeIcon icon={faSpinner} /> Logging in</button>
 
                 ):(
-                                    <button type="submit" className="btn btn-primary form-control">Submit</button>
+                                    <button type="submit" className="btn btn-primary form-control fw-bold">Login</button>
 
                 )}
             </form>
+            <Link to='/recover_password/'><h6 className='my-3'>Forgot Password?</h6></Link>
             </div>
             <div className="col-4"></div>
         </div>

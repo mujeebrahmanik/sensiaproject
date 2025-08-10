@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { AuthContext } from '../../AuthProvider'
 import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 const MainHeader = () => {
 const {loggedIn,setLoggedIn}=useContext(AuthContext)
@@ -29,44 +31,7 @@ const {loggedIn,setLoggedIn}=useContext(AuthContext)
                 </li>
                 
                 
-                <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Pages
-                </a>
-                <ul className="dropdown-menu">
-                    <li className="dropdown-item">
-                    <Link to='/products' className="nav-link active" aria-current="page" href="#">Products</Link>
-                    </li>
-                    <li className="dropdown-item">
-                    <Link to='/marketing' className="nav-link active" aria-current="page" href="#">Marketing</Link>
-                    </li>
-                    <li className="dropdown-item">
-                    <Link to='/orders' className="nav-link active" aria-current="page" href="#">Order</Link>
-                    </li>
-                    <li className="dropdown-item">
-                    <Link to='/media_plans' className="nav-link active" aria-current="page" href="#">Media Plans</Link>
-                    </li>
-                    <li className="dropdown-item">
-                    <Link to='/offer' className="nav-link active" aria-current="page" href="#">Offer Pricing</Link>
-                    </li>
-                    <li className="dropdown-item">
-                    <Link to='/clients' className="nav-link active" aria-current="page" href="#">Clients</Link>
-                    </li>
-                    <li className="dropdown-item">
-                    <Link to='/suppliers' className="nav-link active" aria-current="page" href="#">Suppliers</Link>
-                    </li>
-                    <li className="dropdown-item">
-                    <Link to='/customer_support' className="nav-link active" aria-current="page" href="#">Customer Support</Link>
-                    </li>
-                    <li className="dropdown-item">
-                    <Link to='/sales_report' className="nav-link active" aria-current="page" href="#">Sales Report</Link>
-                    </li>
-                    <li className="dropdown-item">
-                    <Link to='/finance_accounting' className="nav-link active" aria-current="page" href="#">Finance and Accounting</Link>
-                    </li>
-
-                    </ul>
-                </li> 
+                
                 {loggedIn ? (
                   <li className="nav-item">
                   <button to='/' className="nav-link text-danger" aria-current="page" href="#" onClick={logout}>Logout</button>

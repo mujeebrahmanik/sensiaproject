@@ -26,6 +26,10 @@ import AdminRoute from './AdminRoute'
 import UserPermission from './components/superAdmin/UserPermission'
 import Authorized from './components/user/Authorized'
 import EditPermission from './components/superAdmin/EditPermission'
+import PublicRoot from './PublicRoot'
+import RecoverPwd from './components/user/RecoverPwd'
+import ResetPassword from './components/user/ResetPassword'
+import EditUser from './components/superAdmin/EditUser'
 
 
 function App() {
@@ -37,8 +41,12 @@ function App() {
       <AuthProvider>
       <Header/>
         <Routes>
-          <Route path='/admin/login/' element={<Login/>} />
-          <Route path='/login/' element={<Userloginpage/>} />
+          <Route path='/admin/login/' element={<PublicRoot><Login/></PublicRoot>} />
+          <Route path='/login/' element={<PublicRoot><Userloginpage/></PublicRoot>} />
+          <Route path='/recover_password/' element={<PublicRoot><RecoverPwd/></PublicRoot>} />
+          <Route path='/reset_password/:uid/:token/' element={<PublicRoot><ResetPassword/></PublicRoot>} />
+
+
           <Route path='/' element={<Home/>} />
           <Route path='/products' element={<PrivateRoute  permissions={{can_view:true}}><ProductList/></PrivateRoute>} />
           <Route path='/marketing' element={<PrivateRoute permissions={{can_view:true}}><MarketingList/></PrivateRoute>} />
@@ -56,6 +64,7 @@ function App() {
           <Route path='/admin/dashboard' element={<AdminRoute><AdminDashboard/></AdminRoute>} />
           <Route path='/admin/users' element={<AdminRoute><UserList/></AdminRoute>} />
           <Route path='/admin/addusers' element={<AdminRoute><Addusers/></AdminRoute>} />
+          <Route path='/admin/user/edit/:id' element={<AdminRoute><EditUser/></AdminRoute>} />
           <Route path='/admin/permission' element={<AdminRoute><UserPermission/></AdminRoute>} />
           <Route path='/admin/permission/edit/:id' element={<AdminRoute><EditPermission/></AdminRoute>} />
           <Route path='/unauthorized' element={<PrivateRoute><Authorized/></PrivateRoute>} />

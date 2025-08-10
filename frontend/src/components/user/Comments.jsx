@@ -44,6 +44,9 @@ const Comments = () => {
             })
             setComments(prev => prev.filter(comment => comment.id !== id));
             setSuccess(true)
+            setTimeout(()=>{
+                    setSuccess(false)
+                },3000)
         } catch (error) {
             console.error(error)
             setSuccess(false)
@@ -66,24 +69,24 @@ const Comments = () => {
             </div>
             <div className="row">
                 
-                    <table className="table table-striped" border={1}>
+                    <table className="table table-bordered" border={1}>
                         <thead>
                             <tr>
-                            <th scope="col">Sl.No</th>
-                            <th scope="col">Comment</th>
-                            <th scope="col">User</th>
-                            <th scope="col">Date</th>
-                            <th scope="col">Actions</th>
+                            <th scope="col" className='bg-dark text-white text-center'>Sl.No</th>
+                            <th scope="col" className='bg-dark text-white text-center'>Comment</th>
+                            <th scope="col" className='bg-dark text-white text-center'>User</th>
+                            <th scope="col" className='bg-dark text-white text-center'>Date</th>
+                            <th scope="col" className='bg-dark text-white text-center'>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             {comments.map((i,index)=>
                                 <tr key={index}>
-                                <th scope="row">{index+1}</th>
-                                <td>{i.comment}</td>
-                                <td>{i.user}</td>
-                                <td>{i.time.split("T")[0]}</td>
-                                <td>
+                                <th scope="row" className='text-center'>{index+1}</th>
+                                <td className='text-center'>{i.comment}</td>
+                                <td className='text-center'>{i.user}</td>
+                                <td className='text-center'>{i.time.split("T")[0]}</td>
+                                <td className='text-center'>
                                     {myPermission?.can_view && (
                                         <Link className='btn btn-sm btn-success' to={`/comment/${i.id}`}><FontAwesomeIcon icon={faEye} /></Link> 
                                     )}

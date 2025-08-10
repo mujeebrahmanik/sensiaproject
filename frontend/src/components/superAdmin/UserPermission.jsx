@@ -28,34 +28,34 @@ const UserPermission = () => {
     },[])
   return (
     <>
-    <div className="container my-3">
-            <div className="row"><h4 className='text-center mb-4'>User Permissions</h4></div>
+    <div className="container py-5">
+            <div className="row"><h4 className='text-center mb-5'>User Permissions</h4></div>
             
             <div className="row">
                 <div className="col-1"></div>
                 <div className="col-10">
-                    <table className="table table-striped" border={1}>
+                    <table className="table table-bordered" border={1}>
                         <thead>
                             <tr>
-                            <th scope="col">Sl.No</th>
-                            <th scope="col">User</th>
-                            <th scope="col">Can View</th>
-                            <th scope="col">Can Add</th>
-                            <th scope="col">Can Edit</th>
-                            <th scope="col">Can Delete</th>
-                            <th scope="col">Actions</th>
+                            <th scope="col" className='bg-dark text-white text-center'>Sl.No</th>
+                            <th scope="col" className='bg-dark text-white text-center'>User</th>
+                            <th scope="col" className='bg-dark text-white text-center'>Can View</th>
+                            <th scope="col" className='bg-dark text-white text-center'>Can Add</th>
+                            <th scope="col" className='bg-dark text-white text-center'>Can Edit</th>
+                            <th scope="col" className='bg-dark text-white text-center'>Can Delete</th>
+                            <th scope="col" className='bg-dark text-white text-center'>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             {permission.map((i,index)=>
                                 <tr key={index}>
-                                <th scope="row">{index+1}</th>
-                                <td>{i.user}</td>
-                                <td>{i.can_view == true ? (<FontAwesomeIcon icon={faCheck} className='text-success' />):(<FontAwesomeIcon icon={faXmark}  className='text-danger' />)}</td>
-                                <td>{i.can_add == true ? (<FontAwesomeIcon icon={faCheck} className='text-success' />):(<FontAwesomeIcon icon={faXmark}  className='text-danger' />)}</td>
-                                <td>{i.can_edit == true ? (<FontAwesomeIcon icon={faCheck} className='text-success' />):(<FontAwesomeIcon icon={faXmark}  className='text-danger' />)}</td>
-                                <td>{i.can_delete == true ? (<FontAwesomeIcon icon={faCheck} className='text-success' />):(<FontAwesomeIcon icon={faXmark}  className='text-danger' />)}</td>
-                                <td> <Link className='btn btn-sm btn-primary ms-1' to={`/admin/permission/edit/${i.id}`}><FontAwesomeIcon icon={faEdit} /></Link></td>
+                                <th scope="row" className='text-center'>{index+1}</th>
+                                <td className='text-center'>{i.user}</td>
+                                <td className='text-center'>{i.can_view == true ? (<FontAwesomeIcon icon={faCheck} className='text-success' />):(<FontAwesomeIcon icon={faXmark}  className='text-danger' />)}</td>
+                                <td className='text-center'>{i.can_add == true ? (<FontAwesomeIcon icon={faCheck} className='text-success' />):(<FontAwesomeIcon icon={faXmark}  className='text-danger' />)}</td>
+                                <td className='text-center'>{i.can_edit == true ? (<FontAwesomeIcon icon={faCheck} className='text-success' />):(<FontAwesomeIcon icon={faXmark}  className='text-danger' />)}</td>
+                                <td className='text-center'>{i.can_delete == true ? (<FontAwesomeIcon icon={faCheck} className='text-success' />):(<FontAwesomeIcon icon={faXmark}  className='text-danger' />)}</td>
+                                <td className='text-center'> <Link className='btn btn-sm btn-primary ms-1' to={`/admin/permission/edit/${i.id}`}><FontAwesomeIcon icon={faEdit} /></Link></td>
                                 </tr>
                             )}
                             

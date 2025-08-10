@@ -1,21 +1,25 @@
 import React, { useState } from 'react'
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSpinner } from '@fortawesome/free-solid-svg-icons'
+
 
 const Addusers = () => {
     const [username,setUsername]=useState('')
     const [firstName,setFirstName]=useState('')
     const [lastName,setLastName]=useState('')
     const [email,setEmail]=useState('')
-    const [password,setPassword]=useState('')
     const[success,setSuccess]=useState(false)
     const [error,setError]=useState('')
+    const [loading,setLoading]=useState(false)
 
 
     const handleSubmit=async(e)=>{
         e.preventDefault()
+        setLoading(true)
 
         try {
-            const Data={username:username,first_name:firstName,last_name:lastName,email:email,password:password}
+            const Data={username:username,first_name:firstName,last_name:lastName,email:email}
             const Token=localStorage.getItem('accessToken')
             const response=await axios.post('http://127.0.0.1:8000/api/users/',Data,
                 {
@@ -30,12 +34,13 @@ const Addusers = () => {
             setLastName('')
             setUsername('')
             setEmail('')
-            setPassword('')
             
         } catch(error) {
             setSuccess(false)
             setError(error.response.data)
 
+        }finally{
+            setLoading(false)
         }
 
     }
@@ -44,7 +49,7 @@ const Addusers = () => {
      <>
       <div className="container py-5">
             <div className="row">
-                <h3 className='text-center'>Add Users</h3>
+                <h3 className='text-center fw-bold'>Add Users</h3>
             </div>
             <div className="row">
                         <div className="col-4"></div>
@@ -72,14 +77,13 @@ const Addusers = () => {
                                 <input  type='email' className="form-control" id="email" name='email' value={email} onChange={(e)=>{setEmail(e.target.value)}}/>
                             </div>
 
-                            <div className="mb-3">
-                                <label for="exampleInputEmail1" className="form-label">Password</label>
-                                <input  type='password' className="form-control" id="password" name='password' value={password} onChange={(e)=>{setPassword(e.target.value)}}/>
-                                {error.password && <h5 className='text-danger  my-4'>{error.password}</h5>}
+                            {loading?(
+                                                            <button type="submit" className="btn btn-primary form-control" disabled> <FontAwesomeIcon icon={faSpinner} />Please Wait</button>
 
-                            </div>
+                            ):(
+                                                            <button type="submit" className="btn btn-primary form-control">Submit</button>
 
-                            <button type="submit" className="btn btn-primary form-control">Submit</button>
+                            )}
                             </form>
                         </div>
                         <div className="col-4"></div>

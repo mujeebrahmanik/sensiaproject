@@ -70,7 +70,7 @@ const Login = () => {
                                 <button type="submit" className="btn btn-primary form-control"><FontAwesomeIcon icon={faSpinner} /> Logging in</button>
 
                 ):(
-                                    <button type="submit" className="btn btn-primary form-control">Submit</button>
+                                    <button type="submit" className="btn btn-primary form-control">Login</button>
 
                 )}            </form>
             </div>

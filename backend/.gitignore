@@ -1,0 +1,50 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+
+
+# Environment files
+.env
+*.env
+
+# Virtual environment
+venv/
+ENV/
+env/
+.venv/
+
+# VSCode settings
+.vscode/
+
+# PyCharm settings
+.idea/
+
+# Logs
+*.log
+
+# Static & media files (if generated locally)
+staticfiles/
+media/
+
+# Django migrations (optional: only ignore if you don't want to commit them)
+# **Be careful — usually we commit migrations**
+# */migrations/*.py
+# !*/migrations/__init__.py
+
+# Backup files
+*.bak
+*.swp
+*.swo
+
+# Coverage / test reports
+htmlcov/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
